@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AI Auditor Assistant</title>
+    <style>
+        body { 
+            width: 340px; 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            padding: 12px;
+            background: #f5f5f5;
+        }
+        h2 { 
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            color: #1a1a1a;
+            border-bottom: 2px solid #0078d4;
+            padding-bottom: 6px;
+        }
+        .section {
+            background: white;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .section label {
+            font-size: 12px;
+            color: #666;
+            display: block;
+            margin-bottom: 4px;
+        }
+        textarea { 
+            width: 100%; 
+            height: 100px; 
+            margin-bottom: 8px;
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 11px;
+            font-family: 'Consolas', monospace;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        button { 
+            width: 100%; 
+            padding: 8px 12px; 
+            font-size: 13px; 
+            cursor: pointer; 
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            transition: background 0.2s;
+        }
+        .btn-primary {
+            background: #0078d4;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #005a9e;
+        }
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+        .btn-discover {
+            background: #00a65a;
+            color: white;
+        }
+        .btn-discover:hover {
+            background: #008a4b;
+        }
+        #status { 
+            margin-top: 8px; 
+            font-size: 12px; 
+            color: #666;
+            min-height: 16px;
+        }
+        .hint {
+            font-size: 10px;
+            color: #999;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+        .divider {
+            text-align: center;
+            color: #ccc;
+            margin: 6px 0;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+    <h2>AI Auditor Assistant</h2>
+    
+    <div class="section">
+        <button id="discoverBtn" class="btn-discover">🔍 Pobierz pola formularza</button>
+        <div class="hint">Kliknij, żeby zobaczyć jakie pola formularza są widoczne na stronie</div>
+    </div>
+
+    <div class="divider">— LUB —</div>
+
+    <div class="section">
+        <label>Opcja 1: Wczytaj plik JSON</label>
+        <button id="fileBtn" class="btn-secondary">📁 Wczytaj plik JSON</button>
+        <div class="hint">Wybierz plik .json wygenerowany przez AI z danych audytu</div>
+    </div>
+
+    <div class="divider">— LUB —</div>
+
+    <div class="section">
+        <label>Opcja 2: Wklej JSON</label>
+        <textarea id="jsonData" placeholder='Wklej tutaj JSON z danymi...'></textarea>
+        <button id="fillBtn" class="btn-primary">Wypełnij Formularz</button>
+    </div>
+
+    <div id="status">Gotowy</div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
